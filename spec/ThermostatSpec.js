@@ -9,6 +9,13 @@ var thermostat;
 
     it('can increase in increments of one', function () {
         thermostat = new Thermostat();
-        expect(thermostat.increase).toEqual(21);
+        thermostat.increase();
+        expect(thermostat.default_temp).toEqual(21);
+    });
+
+    it('can decrease in increments of one', function () {
+        thermostat = new Thermostat();
+        thermostat.decrease();
+        expect(thermostat.default_temp).toEqual(19);
     });
 });
