@@ -33,17 +33,23 @@ var thermostat;
     });
 
     it('has a power save mode', function () {
-        expect(thermostat.savemode).toBe(true);
+        expect(thermostat.saveMode).toBe(true);
     });
 
-    it('has a maximum temp of 25 if power save mode is on', function(){
-        for (i=0; i < 6; i++) {
+    it('can turn power save mode off', function () {
+        thermostat.pSaveToggle
+        expect(thermostat.saveMode).toBe(false);
+    });
+
+    it('has a maximum temp of 25 if power save mode is on', function () {
+        for (i = 0; i < 6; i++) {
             thermostat.increase();
         }
         expect(thermostat.temp).toEqual(25);
     });
 
     it('has a maxiumum temp of 32 if power save mode is off',function (){
+        thermostat.pSaveToggle
         for (i=0; i < 13; i++){
             thermostat.increase();
         }
