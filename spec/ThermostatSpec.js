@@ -18,4 +18,22 @@ var thermostat;
         thermostat.decrease();
         expect(thermostat.default_temp).toEqual(19);
     });
+
+    it("has a minimum temperature of 10", function() {
+      expect(thermostat.minimum).toEqual(10) 
+    });
+
+    it ('it cannot go below minimum temperature', function () {
+        //make it go down 11 degrees
+        thermostat = new Thermostat();
+        for (i = 0; i < 11; i++) {
+        thermostat.decrease();
+        }
+        expect(thermostat.default_temp).toEqual(10) 
+    });
+ 
+    it ('it has a power save mode', function () {
+      thermostat = new Thermostat();
+      expect(thermostat.savemode).toBe(true);
+    });
 });
