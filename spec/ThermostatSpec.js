@@ -42,4 +42,11 @@ var thermostat;
         }
         expect(thermostat.temp).toEqual(25);
     });
+
+    it('has a maxiumum temp of 32 if power save mode is off',function (){
+        for (i=0; i < 13; i++){
+            thermostat.increase();
+        }
+        expect(thermostat.temp).toEqual(32);
+    });
 });
